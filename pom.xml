@@ -50,10 +50,15 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
+        <classmate.version>1.5.1</classmate.version>
         <exec.mainClass>com.dappermoose.batchlitcal.main.Main</exec.mainClass>
         <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
         <fluido-skin.version>1.9</fluido-skin.version>
+        <hibernate-validator.version>7.0.1.Final</hibernate-validator.version>
+<!--
         <jackson.version>2.13.0</jackson.version>
+-->
+        <jboss-logging.version>3.4.2.Final</jboss-logging.version>
         <lombok.version>1.18.22</lombok.version>
         <maven.version.rules>file://${project.basedir}/versions-rule-set.xml</maven.version.rules>
         <pmd.version>6.40.0</pmd.version>
@@ -98,6 +103,16 @@
                 <artifactId>spring-context</artifactId>
                 <version>${spring-framework.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging</artifactId>
+                <version>${jboss-logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml</groupId>
+                <artifactId>classmate</artifactId>
+                <version>${classmate.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -131,6 +146,16 @@
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.el</artifactId>
+            <version>4.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -441,6 +466,7 @@
                                     <mainClass>com.dappermoose.batchlitcal.main.Main</mainClass>
                                     <manifestEntries>
                                         <Multi-Release>true</Multi-Release>
+                                        <Implementation-Version>${hibernate-validator.version}</Implementation-Version>
                                     </manifestEntries>
                                 </transformer>
 

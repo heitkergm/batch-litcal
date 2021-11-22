@@ -16,6 +16,9 @@ import org.springframework.core.io.ClassPathResource;
 
 import lombok.extern.log4j.Log4j2;
 
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+
 /**
  * The Class SpringConfig.
  */
@@ -95,5 +98,16 @@ public class SpringConfig
         dateNames[5] = msgSource.getMessage ("friday", null, locale);
         dateNames[6] = msgSource.getMessage ("saturday", null, locale);
         return dateNames;
+    }
+
+    /**
+     * hibernate validator bean. 
+     *
+     * @return the validator
+     */
+    @Bean
+    Validator validator ()
+    {
+        return Validation.buildDefaultValidatorFactory ().getValidator ();
     }
 }
