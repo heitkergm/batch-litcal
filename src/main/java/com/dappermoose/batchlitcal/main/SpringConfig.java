@@ -3,7 +3,6 @@ package com.dappermoose.batchlitcal.main;
 import java.util.Locale;
 
 import javax.inject.Inject;
-import javax.validation.Validation;
 import javax.validation.Validator;
 
 import org.springframework.context.ApplicationContext;
@@ -15,6 +14,7 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -107,6 +107,6 @@ public class SpringConfig
     @Bean
     Validator validator ()
     {
-        return Validation.buildDefaultValidatorFactory ().getValidator ();
+        return new LocalValidatorFactoryBean ();
     }
 }
