@@ -55,7 +55,7 @@
         <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
         <fluido-skin.version>1.9</fluido-skin.version>
         <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
-        <jakarta-validation-api.version>2.0.1</jakarta-validation-api.version>
+        <jakarta-validation-api.version>2.0.2</jakarta-validation-api.version>
         <jboss-logging.version>3.4.2.Final</jboss-logging.version>
         <lombok.version>1.18.22</lombok.version>
         <maven.version.rules>file://${project.basedir}/versions-rule-set.xml</maven.version.rules>
