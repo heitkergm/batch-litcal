@@ -3,6 +3,8 @@ package com.dappermoose.batchlitcal.main;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.validation.Validation;
+import javax.validation.Validator;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
@@ -15,9 +17,6 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.core.io.ClassPathResource;
 
 import lombok.extern.log4j.Log4j2;
-
-import jakarta.validation.Validation;
-import jakarta.validation.Validator;
 
 /**
  * The Class SpringConfig.
