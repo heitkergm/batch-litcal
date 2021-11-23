@@ -55,9 +55,6 @@
         <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
         <fluido-skin.version>1.9</fluido-skin.version>
         <hibernate-validator.version>7.0.1.Final</hibernate-validator.version>
-<!--
-        <jackson.version>2.13.0</jackson.version>
--->
         <jboss-logging.version>3.4.2.Final</jboss-logging.version>
         <lombok.version>1.18.22</lombok.version>
         <maven.version.rules>file://${project.basedir}/versions-rule-set.xml</maven.version.rules>
@@ -117,15 +114,6 @@
     </dependencyManagement>
 
     <dependencies>
-<!--        <dependency> -->
-            <!-- fixup javadoc generation -->
-<!--
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-modules-java8</artifactId>
-            <version>${jackson.version}</version>
-            <type>pom</type>
-        </dependency>
--->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j18-impl</artifactId>
