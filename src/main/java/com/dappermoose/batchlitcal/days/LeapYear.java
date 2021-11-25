@@ -3,7 +3,7 @@ package com.dappermoose.batchlitcal.days;
 /**
  * leap year utility.
  *
- * @author matt
+ * @author heitkergm@acm.org
  */
 public final class LeapYear
 {

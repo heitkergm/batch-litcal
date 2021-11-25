@@ -7,7 +7,7 @@ import lombok.extern.log4j.Log4j2;
  *
  * <p>This is Gauss's algorithm for Easter.</p>
  *
- * @author matt
+ * @author heitkergm@acm.org
  */
 @Log4j2
 public final class EasterDay

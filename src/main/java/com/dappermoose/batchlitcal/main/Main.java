@@ -10,6 +10,7 @@ import lombok.extern.log4j.Log4j2;
 /**
  * This is the actual main class.
  *
+ * @author heitkergm@acm.org
  */
 @Log4j2
 public final class Main

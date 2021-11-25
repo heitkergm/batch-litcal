@@ -20,6 +20,8 @@ import lombok.extern.log4j.Log4j2;
 
 /**
  * The Class SpringConfig.
+ * 
+ * @author heitkergm@acm.org
  */
 @ComponentScan ("com.dappermoose.batchlitcal")
 @Configuration

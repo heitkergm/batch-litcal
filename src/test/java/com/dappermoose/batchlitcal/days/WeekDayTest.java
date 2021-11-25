@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  *  Test the WeekDay class.
- * @author matt
+ * @author heitkergm@acm.org
  */
 public class WeekDayTest
 {

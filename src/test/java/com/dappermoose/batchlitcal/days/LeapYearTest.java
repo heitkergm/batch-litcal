@@ -10,7 +10,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  *  Test the LeapYear class.
- * @author matt
+ *
+ * @author heitkergm@acm.org
  */
 public class LeapYearTest
 {

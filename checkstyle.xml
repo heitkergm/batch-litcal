@@ -90,6 +90,7 @@ and open the template in the editor.
         <!-- javadoc -->
         <module name="JavadocType">
             <property name="scope" value="public"/>
+            <property name="authorFormat" value="\S"/>
         </module>
         <module name="JavadocMethod">
             <property name="accessModifiers" value="public"/>

@@ -1,8 +1,10 @@
 package com.dappermoose.batchlitcal.calendar;
 
-
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.util.Locale;
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -14,8 +16,9 @@ import org.springframework.stereotype.Component;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * This is the class which makes the calendar.
+ *  This is the class which makes the calendar.
  *
+ *  @author heitkergm@acm.org
  */
 @Log4j2
 @Component
@@ -26,6 +29,9 @@ public class MakeCalendar
 
     @Inject
     private ApplicationContext context;
+
+    @Inject
+    private Locale locale;
 
     /**
      * Make an instance of the calendar maker class.
@@ -58,9 +64,11 @@ public class MakeCalendar
         {
             boolean hasError = false;
             Properties props = new Properties ();
-            try (FileInputStream fis = new FileInputStream (fileName))
+            try (InputStream is =
+                 Files.newInputStream (FileSystems.getDefault ()
+                                       .getPath (fileName)))
             {
-                props.load (fis);
+                props.load (is);
             }
             catch (IOException e)
             {
