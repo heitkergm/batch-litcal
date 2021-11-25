@@ -2,7 +2,10 @@ package com.dappermoose.batchlitcal.main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.dappermoose.batchlitcal.calendar.MakeCalendar;
+
 import lombok.extern.log4j.Log4j2;
+
 
 /**
  * This is the actual main class.
@@ -31,5 +34,8 @@ public final class Main
 
         // make sure our context shuts down when JVM wants to
         context.registerShutdownHook ();
+
+        MakeCalendar makeCal = context.getBean (MakeCalendar.class);
+        makeCal.makeCal (args);
     }
 }

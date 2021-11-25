@@ -52,6 +52,7 @@
         <java.version>17</java.version>
         <classmate.version>1.5.1</classmate.version>
         <exec.mainClass>com.dappermoose.batchlitcal.main.Main</exec.mainClass>
+        <exec.args>sample-input.properties</exec.args>
         <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
         <fluido-skin.version>1.9</fluido-skin.version>
         <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
