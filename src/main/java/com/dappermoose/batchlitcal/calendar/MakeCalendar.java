@@ -1,5 +1,10 @@
 package com.dappermoose.batchlitcal.calendar;
 
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 import javax.inject.Inject;
 
 import org.springframework.context.ApplicationContext;
@@ -51,7 +56,23 @@ public class MakeCalendar
 
         if (fileName != null)
         {
-            ;// do something   
+            boolean hasError = false;
+            Properties props = new Properties ();
+            try (FileInputStream fis = new FileInputStream (fileName))
+            {
+                props.load (fis);
+            }
+            catch (IOException e)
+            {
+                hasError = true;
+                LOG.error ("Input file error loading " +
+                           e.getClass ().getName () + " " +
+                           e.getMessage ());
+            }
+            if (!hasError)
+            {
+                ; // here we continue...
+            }
         }
         else
         {
