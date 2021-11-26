@@ -9,7 +9,6 @@ import java.util.Properties;
 
 import javax.inject.Inject;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
@@ -26,9 +25,6 @@ public class MakeCalendar
 {
     @Inject
     private MessageSource messageSource;
-
-    @Inject
-    private ApplicationContext context;
 
     @Inject
     private Locale locale;
@@ -50,12 +46,12 @@ public class MakeCalendar
     {
         String fileName = null;
         LOG.debug ("there were " + args.length + " command line arguments");
-        for (int i = 0; i < args.length; i++)
+        for (String arg : args)
         {
-            LOG.debug (args[i]);
+            LOG.debug (arg);
             if (fileName == null)
             {
-                fileName = args[i];
+                fileName = arg;
             }
         }
         LOG.debug ("input fileName is " + fileName);
@@ -73,7 +69,11 @@ public class MakeCalendar
             catch (IOException e)
             {
                 hasError = true;
-                LOG.error ("Input file error loading " +
+                Object [] arr = new Object[] {fileName};
+                String msg = messageSource.getMessage ("noFileFound", 
+                                                       arr,
+                                                       locale);
+                LOG.error (msg + " " +
                            e.getClass ().getName () + " " +
                            e.getMessage ());
             }
@@ -84,7 +84,9 @@ public class MakeCalendar
         }
         else
         {
-            LOG.error ("no file name specified.  Shutting down");
+            String msg = messageSource.getMessage ("noFileGiven", 
+                                                       null, locale);
+            LOG.error (msg);
         }
     }
 }
