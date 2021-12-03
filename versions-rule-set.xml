@@ -7,15 +7,5 @@
                 <ignoreVersion type="regex">2.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.hibernate.validator" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">7.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.tomcat.embed" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">10.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
     </rules>
 </ruleset>

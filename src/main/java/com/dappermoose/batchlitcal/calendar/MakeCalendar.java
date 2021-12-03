@@ -29,6 +29,9 @@ public class MakeCalendar
     @Inject
     private Locale locale;
 
+    @Inject
+    private Inputs inputs;
+
     /**
      * Make an instance of the calendar maker class.
      */
@@ -56,10 +59,10 @@ public class MakeCalendar
         }
         LOG.debug ("input fileName is " + fileName);
 
+        boolean hasError = false;
+        Properties props = new Properties ();
         if (fileName != null)
         {
-            boolean hasError = false;
-            Properties props = new Properties ();
             try (InputStream is =
                  Files.newInputStream (FileSystems.getDefault ()
                                        .getPath (fileName)))
@@ -77,16 +80,20 @@ public class MakeCalendar
                            e.getClass ().getName () + " " +
                            e.getMessage ());
             }
-            if (!hasError)
-            {
-                ; // here we continue...
-            }
         }
         else
         {
             String msg = messageSource.getMessage ("noFileGiven", 
                                                        null, locale);
             LOG.error (msg);
+            hasError = true;
         }
+        if (hasError)
+        {
+            System.exit (1);
+        }
+
+        // here we continue...
+        inputs.processInputs (props);
     }
 }
