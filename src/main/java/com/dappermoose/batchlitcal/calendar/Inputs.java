@@ -77,6 +77,8 @@ public class Inputs
                 if (!hasErrors)
                 { 
                     opts.setYear (yr);
+                    LOG.debug ("year was an integer " + yr);
+
                 }
             }
         }
