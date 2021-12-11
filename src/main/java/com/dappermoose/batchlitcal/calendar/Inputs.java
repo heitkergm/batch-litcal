@@ -56,7 +56,7 @@ public class Inputs
             String value = props.getProperty (name);
             LOG.debug ("Property: " + name + " = " + value);
             if (opts.getYear () == null &&
-                name.equals ("year"))
+                "year".equals (name))
             {
                 Integer yr = null;
                 try
