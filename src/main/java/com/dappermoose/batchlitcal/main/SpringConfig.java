@@ -53,9 +53,15 @@ public class SpringConfig
     Locale locale ()
     {
         // get the locale and save it off as a bean
-        Locale myLocale = Locale.getDefault ();
-        String localeName = myLocale.getDisplayName ();
+        LOG.debug ("context is " + context);
+        String localeName = context.getEnvironment ().getProperty ("locale");
         LOG.debug ("locale is " + localeName);
+        if (localeName == null)
+        {
+            localeName = Locale.getDefault ().getDisplayName ();
+        }
+        
+        Locale myLocale = new Locale (localeName);
         LOG.debug ("locale bean is " + myLocale);
         
         return myLocale;

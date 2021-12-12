@@ -1,6 +1,7 @@
 package com.dappermoose.batchlitcal.main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.SimpleCommandLinePropertySource;
 
 import com.dappermoose.batchlitcal.calendar.MakeCalendar;
 
@@ -30,11 +31,24 @@ public final class Main
         LOG.debug ("starting main batch litcal program");
 
         // make the context
+        SimpleCommandLinePropertySource ps;
+        ps = new SimpleCommandLinePropertySource (args);
+        String [] pnames = ps.getPropertyNames ();
+        for (String pname : pnames)
+        {
+            LOG.debug ("property name: " + pname + ": " + ps.getProperty (pname));
+        }
+        
         AnnotationConfigApplicationContext context =
-            new AnnotationConfigApplicationContext (SpringConfig.class);
-
+            new AnnotationConfigApplicationContext ();
+        context.getEnvironment ().getPropertySources ().addFirst (ps);
+               
         // make sure our context shuts down when JVM wants to
         context.registerShutdownHook ();
+        
+        // now run SpringConfig and inject the locale bean
+        context.register (SpringConfig.class);
+        context.refresh ();
 
         MakeCalendar makeCal = context.getBean (MakeCalendar.class);
         makeCal.makeCal (args);
