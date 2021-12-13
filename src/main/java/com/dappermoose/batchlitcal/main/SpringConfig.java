@@ -1,6 +1,11 @@
 package com.dappermoose.batchlitcal.main;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.util.Locale;
+import java.util.Properties;
 
 import javax.inject.Inject;
 
@@ -13,6 +18,9 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
+
+import com.dappermoose.batchlitcal.calendar.CalendarOptions;
+import com.dappermoose.batchlitcal.calendar.Inputs;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -103,5 +111,58 @@ public class SpringConfig
         dateNames[5] = msgSource.getMessage ("friday", null, locale);
         dateNames[6] = msgSource.getMessage ("saturday", null, locale);
         return dateNames;
+    }
+    
+    /**
+     * Calendar Options bean.
+     * 
+     * @return the Calendar Options bean.
+     */
+    @Bean
+    @DependsOn ({"messageSource", "locale"})
+    CalendarOptions calendarOptions ()
+    {
+        Locale locale = (Locale) context.getBean ("locale");
+        MessageSource messageSource = (MessageSource) context.getBean ("messageSource");
+
+        String args = context.getEnvironment ().getProperty ("nonOptionArgs");
+        String fileName = null;
+        LOG.debug (args);
+        if (fileName == null)
+        {
+            fileName = args;
+        }
+        LOG.debug ("input fileName is " + fileName);
+
+        Properties props = new Properties ();
+        if (fileName != null)
+        {
+            try (InputStream is =
+                 Files.newInputStream (FileSystems.getDefault ()
+                                       .getPath (fileName)))
+            {
+                props.load (is);
+            }
+            catch (IOException e)
+            {
+                Object [] arr = new Object[] {fileName};
+                String msg = messageSource.getMessage ("noFileFound", 
+                                                       arr,
+                                                       locale);
+                LOG.error (msg + " " +
+                           e.getClass ().getName () + " " +
+                           e.getMessage ());
+                throw new RuntimeException (msg, e);
+            }
+        }
+        else
+        {
+            String msg = messageSource.getMessage ("noFileGiven", 
+                                                       null, locale);
+            LOG.error (msg);
+            throw new RuntimeException (msg);
+        }
+    
+        return  Inputs.processInputs (props, locale, messageSource);
     }
 }

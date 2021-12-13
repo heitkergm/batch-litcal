@@ -4,13 +4,7 @@ import java.util.Enumeration;
 import java.util.Locale;
 import java.util.Properties;
 
-import javax.inject.Inject;
-
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.MessageSource;
-import org.springframework.stereotype.Component;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -20,35 +14,28 @@ import lombok.extern.log4j.Log4j2;
  *  @author heitkergm@acm.org
  */
 @Log4j2
-@Component
-public class Inputs
+public final class Inputs
 {
-    @Inject
-    private MessageSource messageSource;
-
-    @Inject
-    private Locale locale;
-
-    @Inject
-    private ApplicationContext context;
-
-    /**
-     * Make an instance of the calendar maker class.
-     */
-    public Inputs ()
+    private Inputs ()
     {
         LOG.debug ("Creating the Inputs class");
     }
 
     /**
-     * this is the routine which makes the calendar.
+     * this is the routine which makes the calendar bean.
      *
      * @param props the list of program inputs from the command line.
+     * @param locale the locale
+     * @param messageSource the messages
+     * 
+     * @return the CalendarOptions bean
+     * 
      */
-    public void processInputs (final Properties props)
+    public static CalendarOptions processInputs (final Properties props,
+                                                 final Locale locale,
+                                              final MessageSource messageSource)
     {
         CalendarOptions opts = new CalendarOptions ();
-        boolean hasErrors = false;
         for (Enumeration<?> iter = props.propertyNames ();
              iter.hasMoreElements ();)
         {
@@ -72,25 +59,13 @@ public class Inputs
                     LOG.error (msg + " " +
                                e.getClass ().getName () + " " +
                                e.getMessage ());
-                    hasErrors = true;
+                    throw new RuntimeException (msg, e);      
                 }
-                if (!hasErrors)
-                { 
-                    opts.setYear (yr);
-                    LOG.debug ("year was an integer " + yr);
 
-                }
+                opts.setYear (yr);
+                LOG.debug ("year was an integer " + yr);
             }
         }
-
-        if (hasErrors)
-        {
-            System.exit (1);
-        }
-
-        ConfigurableListableBeanFactory beanFactory =
-            ((ConfigurableApplicationContext) context).getBeanFactory ();
-        beanFactory.registerSingleton (opts.getClass ()
-                                       .getCanonicalName (), opts);
+        return opts;
     }
 }

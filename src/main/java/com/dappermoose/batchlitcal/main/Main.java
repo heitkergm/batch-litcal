@@ -38,6 +38,7 @@ public final class Main
         {
             LOG.debug ("property name: " + pname + ": " + ps.getProperty (pname));
         }
+        LOG.debug ("nonOptionsArgs: " + ps.getProperty ("nonOptionArgs"));
         
         AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext ();
@@ -51,6 +52,6 @@ public final class Main
         context.refresh ();
 
         MakeCalendar makeCal = context.getBean (MakeCalendar.class);
-        makeCal.makeCal (args);
+        makeCal.makeCal ();
     }
 }
