@@ -48,7 +48,7 @@ public class SpringConfig
         final ReloadableResourceBundleMessageSource source =
                 new ReloadableResourceBundleMessageSource ();
         source.setCacheSeconds (60);
-        source.setBasenames ("classpath:messages");
+        source.setBasenames ("classpath:messages", "classpath:daynames");
         return source;
     }
     
@@ -66,12 +66,25 @@ public class SpringConfig
         LOG.debug ("locale is " + localeName);
         if (localeName == null)
         {
-            localeName = Locale.getDefault ().getDisplayName ();
+            localeName = Locale.getDefault ().getLanguage () + "_" +
+                         Locale.getDefault ().getCountry ();
         }
         
-        Locale myLocale = new Locale (localeName);
-        LOG.debug ("locale bean is " + myLocale);
+        int ind = localeName.indexOf ('_');
+        Locale myLocale;
+        if (ind >= 0)
+        {
+            myLocale = new Locale (localeName.substring (0, ind),
+                                   localeName.substring (ind + 1));
+        }
+        else
+        {
+            myLocale = new Locale (localeName);
+        }
         
+        LOG.debug ("locale bean is " + myLocale.getLanguage () + "_" +
+                    myLocale.getCountry ());
+
         return myLocale;
     }
 
@@ -110,6 +123,12 @@ public class SpringConfig
         dateNames[4] = msgSource.getMessage ("thursday", null, locale);
         dateNames[5] = msgSource.getMessage ("friday", null, locale);
         dateNames[6] = msgSource.getMessage ("saturday", null, locale);
+        
+        for (String name: dateNames)
+        {
+            LOG.debug ("date name: " + name);
+        }
+        
         return dateNames;
     }
     
