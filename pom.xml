@@ -209,6 +209,10 @@
                     <version>3.2.0</version>
                 </plugin>
                 <plugin>
+                    <!-- spotbugs NEEDS the java built-in security manager
+                         to find some bugs, and so will present a warning
+                         about calling a deprecated method,
+                         System::setSecurityManager -->
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>4.5.0.0</version>
@@ -219,13 +223,11 @@
                             <!-- findsecbugs causes spotbugs to display 
                                  can't find MakeConcatWIthConstants, due to 
                                  bad handling of INVOKEDYNAMIC JVM opcode -->
-<!--
                             <plugin>
                                 <groupId>com.h3xstream.findsecbugs</groupId>
                                 <artifactId>findsecbugs-plugin</artifactId>
                                 <version>${findsecbugs-plugin.version}</version>
                             </plugin>
--->
                             <plugin>
                                 <groupId>com.mebigfatguy.sb-contrib</groupId>
                                 <artifactId>sb-contrib</artifactId>
