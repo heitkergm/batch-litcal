@@ -38,6 +38,7 @@ public class MakeCalendar
      */
     public void makeCal ()
     {
-        LOG.debug ("making the calendar");
+        String msg = messageSource.getMessage ("startCalendar", null, locale);
+        LOG.info (msg);
     }
 }
