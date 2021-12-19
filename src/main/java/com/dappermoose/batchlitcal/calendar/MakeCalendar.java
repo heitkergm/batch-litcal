@@ -40,5 +40,25 @@ public class MakeCalendar
     {
         String msg = messageSource.getMessage ("startCalendar", null, locale);
         LOG.info (msg);
+
+        // make seasons
+        // 1st Advent
+        // 2nd Christmas
+        // 3rd Ordinary time, beginning at week 1
+        // 4th Lent
+        // 5th Easter
+        // 6th Ordinary time, ending at week 34 (Christ the King)
+
+        // for each, put the seasonal dates.
+        // when done with seasons, as a multi-stage processor, do the following:
+        //    override seasonal entries for Solemnities and Feasts
+        //    put in memorials and optional memorials
+
+        // along the way, add options to CalendarOptions.
+        // e.g. observe Ascension on Thursday or following Sunday,
+        //      observe Epiphany on Jan 6 or first Sunday after New Year,
+        //      country-specific Solemnities, Feasts, Memorials, and Optional
+        //          Memorials...
+        // etc.
     }
 }

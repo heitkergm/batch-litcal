@@ -66,6 +66,7 @@ public final class Inputs
                 LOG.debug ("year was an integer " + yr);
             }
         }
+        LOG.debug ("calendar options bean = " + opts);
         return opts;
     }
 }
