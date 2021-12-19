@@ -1,4 +1,4 @@
-package com.dappermoose.batchlitcal.calendar;
+package com.dappermoose.batchlitcal.beans;
 
 import java.util.Enumeration;
 import java.util.Locale;

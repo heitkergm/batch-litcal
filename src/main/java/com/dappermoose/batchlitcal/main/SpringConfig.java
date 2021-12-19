@@ -19,8 +19,8 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
 
-import com.dappermoose.batchlitcal.calendar.CalendarOptions;
-import com.dappermoose.batchlitcal.calendar.Inputs;
+import com.dappermoose.batchlitcal.beans.CalendarOptions;
+import com.dappermoose.batchlitcal.beans.Inputs;
 
 import lombok.extern.log4j.Log4j2;
 

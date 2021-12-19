@@ -1,4 +1,6 @@
-package com.dappermoose.batchlitcal.calendar;
+package com.dappermoose.batchlitcal.beans;
+
+import java.io.Serializable;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,8 +16,13 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @EqualsAndHashCode
 @ToString
-public class CalendarOptions
+public class CalendarOptions implements Serializable
 {
+    private static final long serialVersionUID = 1L;
+    
+    /**
+     * the value of the year.
+     */
     @Getter
     @Setter
     private Integer year;
