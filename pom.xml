@@ -509,6 +509,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <doclint>all</doclint>
+                    <docfilessubdirs>true</docfilessubdirs>
                     <show>package</show>
                     <detectJavaApiLink>false</detectJavaApiLink>
                     <links>
