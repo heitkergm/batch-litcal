@@ -7,14 +7,14 @@ import javax.inject.Inject;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *  This is the class which makes the calendar.
  *
  *  @author heitkergm@acm.org
  */
-@Log4j2
+@Slf4j
 @Component
 public class MakeCalendar
 {

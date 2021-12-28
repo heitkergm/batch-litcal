@@ -1,6 +1,6 @@
 package com.dappermoose.batchlitcal.days;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * week day utility.
@@ -9,7 +9,7 @@ import lombok.extern.log4j.Log4j2;
  *
  * @author heitkergm@acm.org
  */
-@Log4j2
+@Slf4j
 public final class WeekDay
 {
     private WeekDay ()

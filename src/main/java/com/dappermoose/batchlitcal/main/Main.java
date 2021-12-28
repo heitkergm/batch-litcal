@@ -5,7 +5,7 @@ import org.springframework.core.env.SimpleCommandLinePropertySource;
 
 import com.dappermoose.batchlitcal.calendar.MakeCalendar;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j2;
  *
  * @author heitkergm@acm.org
  */
-@Log4j2
+@Slf4j
 public final class Main
 {
     private Main ()

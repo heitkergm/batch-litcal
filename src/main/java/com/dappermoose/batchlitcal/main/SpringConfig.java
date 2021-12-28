@@ -22,7 +22,7 @@ import org.springframework.core.io.ClassPathResource;
 import com.dappermoose.batchlitcal.beans.CalendarOptions;
 import com.dappermoose.batchlitcal.beans.Inputs;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The Class SpringConfig.
@@ -31,7 +31,7 @@ import lombok.extern.log4j.Log4j2;
  */
 @ComponentScan ("com.dappermoose.batchlitcal")
 @Configuration
-@Log4j2
+@Slf4j
 public class SpringConfig
 {
     @Inject
@@ -123,10 +123,13 @@ public class SpringConfig
         dateNames[4] = msgSource.getMessage ("thursday", null, locale);
         dateNames[5] = msgSource.getMessage ("friday", null, locale);
         dateNames[6] = msgSource.getMessage ("saturday", null, locale);
-        
-        for (String name: dateNames)
-        {
-            LOG.debug ("date name: " + name);
+ 
+        if (LOG.isDebugEnabled ())
+        { 
+            for (String name: dateNames)
+            {
+                LOG.debug ("date name: " + name);
+            }
         }
         
         return dateNames;

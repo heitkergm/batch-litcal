@@ -6,14 +6,14 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *  This is the class (eventually a Bean) which holds the input values.
  *
  *  @author heitkergm@acm.org
  */
-@Log4j2
+@Slf4j
 @EqualsAndHashCode
 @ToString
 public class CalendarOptions implements Serializable

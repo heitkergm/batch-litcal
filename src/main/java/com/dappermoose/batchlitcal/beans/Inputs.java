@@ -6,14 +6,14 @@ import java.util.Properties;
 
 import org.springframework.context.MessageSource;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *  This is the class which processes the properties.
  *
  *  @author heitkergm@acm.org
  */
-@Log4j2
+@Slf4j
 public final class Inputs
 {
     private Inputs ()
