@@ -53,5 +53,7 @@ public final class Main
 
         MakeCalendar makeCal = context.getBean (MakeCalendar.class);
         makeCal.makeCal ();
+
+        context.close ();
     }
 }
