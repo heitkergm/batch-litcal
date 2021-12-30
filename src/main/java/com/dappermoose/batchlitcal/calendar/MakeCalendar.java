@@ -1,5 +1,7 @@
 package com.dappermoose.batchlitcal.calendar;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -24,6 +26,9 @@ public class MakeCalendar
     @Inject
     private Locale locale;
 
+    @Inject
+    private BufferedWriter writer;
+
     /**
      * Make an instance of the calendar maker class.
      */
@@ -41,13 +46,13 @@ public class MakeCalendar
         String msg = messageSource.getMessage ("startCalendar", null, locale);
         LOG.info (msg);
 
-        // make seasons
-        // 1st Advent
-        // 2nd Christmas
-        // 3rd Ordinary time, beginning at week 1
-        // 4th Lent
-        // 5th Easter
-        // 6th Ordinary time, ending at week 34 (Christ the King)
+        // make the 6 "seasons"
+        // 1 Advent
+        // 2 Christmas
+        // 3 Ordinary time, beginning at week 1
+        // 4 Lent
+        // 5 Easter
+        // 6 Ordinary time, ending at week 34 (Christ the King)
 
         // for each, put the seasonal dates.
         // when done with seasons, as a multi-stage processor, do the following:
@@ -60,5 +65,16 @@ public class MakeCalendar
         //      country-specific Solemnities, Feasts, Memorials, and Optional
         //          Memorials...
         // etc.
+
+        // THE END
+        try
+        {
+            // close does a flush, then closes
+            writer.close ();
+        }
+        catch (IOException e)
+        {
+            LOG.error (e.getClass ().getName () + " " + e.getMessage ());
+        }
     }
 }

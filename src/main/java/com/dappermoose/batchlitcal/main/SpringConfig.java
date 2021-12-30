@@ -1,7 +1,10 @@
 package com.dappermoose.batchlitcal.main;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.util.Locale;
@@ -185,6 +188,18 @@ public class SpringConfig
             throw new RuntimeException (msg);
         }
     
-        return  Inputs.processInputs (props, locale, messageSource);
+        return Inputs.processInputs (props, locale, messageSource);
+    }
+
+    /**
+     * the buffered output writer.
+     *
+     * @return the writer
+     */
+    @Bean
+    BufferedWriter writer ()
+    {
+        return new BufferedWriter (new OutputStreamWriter (System.out,
+                                                Charset.forName ("ISO-8859")));
     }
 }

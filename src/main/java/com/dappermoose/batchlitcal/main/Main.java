@@ -39,17 +39,17 @@ public final class Main
             LOG.debug ("property name: " + pname + ": " + ps.getProperty (pname));
         }
         LOG.debug ("nonOptionsArgs: " + ps.getProperty ("nonOptionArgs"));
-        
+
         AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext ();
         context.getEnvironment ().getPropertySources ().addFirst (ps);
-               
-        // make sure our context shuts down when JVM wants to
-        context.registerShutdownHook ();
-        
+ 
         // now run SpringConfig and inject the locale bean
         context.register (SpringConfig.class);
         context.refresh ();
+
+        // make sure our context shuts down when JVM wants to
+        context.registerShutdownHook ();
 
         MakeCalendar makeCal = context.getBean (MakeCalendar.class);
         makeCal.makeCal ();
