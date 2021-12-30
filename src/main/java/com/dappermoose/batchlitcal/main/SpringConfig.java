@@ -200,6 +200,6 @@ public class SpringConfig
     BufferedWriter writer ()
     {
         return new BufferedWriter (new OutputStreamWriter (System.out,
-                                                Charset.forName ("ISO-8859")));
+                                                Charset.forName ("ISO-8859-1")));
     }
 }
