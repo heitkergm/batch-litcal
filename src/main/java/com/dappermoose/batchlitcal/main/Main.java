@@ -34,9 +34,12 @@ public final class Main
         SimpleCommandLinePropertySource ps;
         ps = new SimpleCommandLinePropertySource (args);
         String [] pnames = ps.getPropertyNames ();
-        for (String pname : pnames)
+        if (LOG.isDebugEnabled ())
         {
-            LOG.debug ("property name: " + pname + ": " + ps.getProperty (pname));
+            for (String pname : pnames)
+            {
+                LOG.debug ("property name: " + pname + ": " + ps.getProperty (pname));
+            }
         }
         LOG.debug ("nonOptionsArgs: " + ps.getProperty ("nonOptionArgs"));
 
