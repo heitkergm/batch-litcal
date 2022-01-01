@@ -51,7 +51,7 @@ public class SpringConfig
         final ReloadableResourceBundleMessageSource source =
                 new ReloadableResourceBundleMessageSource ();
         source.setCacheSeconds (60);
-        source.setBasenames ("classpath:messages", "classpath:daynames");
+        source.setBasenames ("classpath:messages", "classpath:daynames", "classpath:html");
         return source;
     }
     

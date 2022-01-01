@@ -29,6 +29,9 @@ public class MakeCalendar
     @Inject
     private BufferedWriter writer;
 
+    @Inject
+    private OutputUtils outputUtils;
+
     /**
      * Make an instance of the calendar maker class.
      */
@@ -39,7 +42,6 @@ public class MakeCalendar
 
     /**
      * this is the routine which makes the calendar.
-     *
      */
     public void makeCal ()
     {
@@ -65,8 +67,11 @@ public class MakeCalendar
         //      country-specific Solemnities, Feasts, Memorials, and Optional
         //          Memorials...
         // etc.
+        outputUtils.writeHeader ();
 
         // THE END
+        outputUtils.writeFooter ();
+        
         try
         {
             // close does a flush, then closes
