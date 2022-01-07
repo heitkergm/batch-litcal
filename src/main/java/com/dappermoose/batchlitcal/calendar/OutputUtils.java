@@ -54,9 +54,12 @@ public class OutputUtils
             String message = messageSource.getMessage ("title", new Object [] {year}, locale);
             writer.write ("<head>\n<title>" + message + "</title>\n");
             writer.write ("<style>\n");
-            writer.write ("body {font-family: \"dejavu sans\",\"liberation sans\",sans;}\n");
+            writer.write ("body {font-family: 'dejavu sans', sans;}\n");
+            writer.write (".center {text-align: center;}\n");
+            writer.write (".bold {font-weight: bold;}\n");
             writer.write ("</style>\n");
-            writer.write ("</head>\n<body>\n<h1>" + message + "</h1>\n");
+            writer.write ("</head>\n<body>\n<h1 class='center'>" +
+                          message + "</h1>\n");
             writer.flush ();
         }
         catch (IOException e)
