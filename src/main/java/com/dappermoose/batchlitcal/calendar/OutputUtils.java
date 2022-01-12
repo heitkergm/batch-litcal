@@ -54,7 +54,7 @@ public class OutputUtils
             String message = messageSource.getMessage ("title", new Object [] {year}, locale);
             writer.write ("<head>\n<title>" + message + "</title>\n");
             writer.write ("<style>\n");
-            writer.write ("body {font-family: 'dejavu sans', sans;}\n");
+            writer.write ("body {font-family: 'DejaVu Sans', sans-serif;}\n");
             writer.write (".center {text-align: center;}\n");
             writer.write (".bold {font-weight: bold;}\n");
             writer.write ("</style>\n");
