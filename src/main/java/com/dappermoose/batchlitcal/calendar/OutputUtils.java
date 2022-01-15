@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * contains utilities for printing.
- * 
+ *
  * @author heitkergm@acm.org
  */
 @Slf4j
@@ -54,7 +54,7 @@ public class OutputUtils
             String message = messageSource.getMessage ("title", new Object [] {year}, locale);
             writer.write ("<head>\n<title>" + message + "</title>\n");
             writer.write ("<style>\n");
-            writer.write ("body {font-family: 'DejaVu Sans', sans-serif;}\n");
+            writer.write ("body {font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;}\n");
             writer.write (".center {text-align: center;}\n");
             writer.write (".bold {font-weight: bold;}\n");
             writer.write ("</style>\n");

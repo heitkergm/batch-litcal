@@ -56,7 +56,7 @@
         <exec.args>sample-input.properties</exec.args>
         <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
         <fluido-skin.version>1.10.0</fluido-skin.version>
-        <maven.version.rules>file://${project.basedir}/versions-rule-set.xml</maven.version.rules>
+        <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
         <pmd.version>6.41.0</pmd.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
         <spring-boot.version>2.6.2</spring-boot.version>
@@ -187,8 +187,8 @@
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <configLocation>checkstyle.xml</configLocation>
-                        <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+                        <configLocation>config/checkstyle.xml</configLocation>
+                        <suppressionsLocation>config/checkstyle-suppressions.xml</suppressionsLocation>
                         <encoding>UTF-8</encoding>
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>false</failsOnError>
@@ -212,11 +212,11 @@
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>4.5.3.0</version>
                     <configuration>
-                        <excludeFilterFile>excludeFindbugs.xml</excludeFilterFile>
+                        <excludeFilterFile>config/excludeFindbugs.xml</excludeFilterFile>
                         <includeTests>true</includeTests>
                         <plugins>
-                            <!-- findsecbugs causes spotbugs to display 
-                                 can't find MakeConcatWIthConstants, due to 
+                            <!-- findsecbugs causes spotbugs to display
+                                 can't find MakeConcatWIthConstants, due to
                                  bad handling of INVOKEDYNAMIC JVM opcode -->
                             <plugin>
                                 <groupId>com.h3xstream.findsecbugs</groupId>
@@ -246,7 +246,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>6.5.2</version>
+                <version>6.5.3</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -283,7 +283,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.9.0</version>
                 <configuration>
                     <release>${java.version}</release>
                     <showDeprecation>true</showDeprecation>
@@ -358,7 +358,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.2.2</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -597,7 +597,7 @@
                 </reportSets>
                 <configuration>
                     <autoUpdate>false</autoUpdate>
-                    <suppressionFiles>dependency-suppressions.xml</suppressionFiles>
+                    <suppressionFiles>config/dependency-suppressions.xml</suppressionFiles>
                     <skipProvidedScope>true</skipProvidedScope>
                     <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
                     <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
