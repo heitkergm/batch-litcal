@@ -20,7 +20,7 @@
     <custom>
         <fluidoSkin>
             <gitHub>
-                <projectId>heitkergm/batchlitcal</projectId>
+                <projectId>heitkergm/batch-litcal</projectId>
                 <ribbonOrientation>right</ribbonOrientation>
                 <ribbonColor>black</ribbonColor>
             </gitHub>
