@@ -49,7 +49,7 @@ public class OutputUtils
     {
         try
         {
-            writer.write ("<!DOCTYPE html>\n<html lang=\"en\">\n");
+            writer.write ("<!DOCTYPE html>\n<html lang=\"" + locale.getLanguage () + "\">\n");
             String year = calendarOptions.getYear ().toString ();
             String message = messageSource.getMessage ("title", new Object [] {year}, locale);
             writer.write ("<head>\n<title>" + message + "</title>\n");
@@ -76,6 +76,7 @@ public class OutputUtils
     {
         try
         {
+            writer.write ("<p class='center'>original program &copy; dappermoose.com</p>\n");
             writer.write ("</body>\n</html>\n");
             writer.flush ();
         }

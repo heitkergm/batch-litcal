@@ -29,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * The Class SpringConfig.
- * 
+ *
  * @author heitkergm@acm.org
  */
 @ComponentScan ("com.dappermoose.batchlitcal")
@@ -39,7 +39,7 @@ public class SpringConfig
 {
     @Inject
     private ApplicationContext context;
-    
+
     /**
      * Message source.
      *
@@ -54,10 +54,10 @@ public class SpringConfig
         source.setBasenames ("classpath:messages", "classpath:daynames", "classpath:html");
         return source;
     }
-    
+
     /**
      * the locale bean.
-     * 
+     *
      * @return the locale object in the bean
      */
     @Bean
@@ -72,7 +72,7 @@ public class SpringConfig
             localeName = Locale.getDefault ().getLanguage () + "_" +
                          Locale.getDefault ().getCountry ();
         }
-        
+
         int ind = localeName.indexOf ('_');
         Locale myLocale;
         if (ind >= 0)
@@ -84,7 +84,7 @@ public class SpringConfig
         {
             myLocale = new Locale (localeName);
         }
-        
+
         LOG.debug ("locale bean is " + myLocale.getLanguage () + "_" +
                     myLocale.getCountry ());
 
@@ -93,13 +93,13 @@ public class SpringConfig
 
     /**
      * Add the entries from git.properties into Spring environment.
-     * 
+     *
      * @return propsConfig - the new property sources placeholder configurer.
      */
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeholderConfigurer ()
     {
-        PropertySourcesPlaceholderConfigurer propsConfig = 
+        PropertySourcesPlaceholderConfigurer propsConfig =
             new PropertySourcesPlaceholderConfigurer ();
         propsConfig.setLocation (new ClassPathResource ("git.properties"));
         propsConfig.setIgnoreResourceNotFound (true);
@@ -109,7 +109,7 @@ public class SpringConfig
 
     /**
      * weekday names bean.
-     * 
+     *
      * @return the list of date names
      */
     @Bean
@@ -126,21 +126,21 @@ public class SpringConfig
         dateNames[4] = msgSource.getMessage ("thursday", null, locale);
         dateNames[5] = msgSource.getMessage ("friday", null, locale);
         dateNames[6] = msgSource.getMessage ("saturday", null, locale);
- 
+
         if (LOG.isDebugEnabled ())
-        { 
+        {
             for (String name: dateNames)
             {
                 LOG.debug ("date name: " + name);
             }
         }
-        
+
         return dateNames;
     }
-    
+
     /**
      * Calendar Options bean.
-     * 
+     *
      * @return the Calendar Options bean.
      */
     @Bean
@@ -153,10 +153,7 @@ public class SpringConfig
         String args = context.getEnvironment ().getProperty ("nonOptionArgs");
         String fileName = null;
         LOG.debug (args);
-        if (fileName == null)
-        {
-            fileName = args;
-        }
+        fileName = args;
         LOG.debug ("input fileName is " + fileName);
 
         Properties props = new Properties ();
@@ -171,7 +168,7 @@ public class SpringConfig
             catch (IOException e)
             {
                 Object [] arr = new Object[] {fileName};
-                String msg = messageSource.getMessage ("noFileFound", 
+                String msg = messageSource.getMessage ("noFileFound",
                                                        arr,
                                                        locale);
                 LOG.error (msg + " " +
@@ -182,12 +179,12 @@ public class SpringConfig
         }
         else
         {
-            String msg = messageSource.getMessage ("noFileGiven", 
+            String msg = messageSource.getMessage ("noFileGiven",
                                                        null, locale);
             LOG.error (msg);
             throw new RuntimeException (msg);
         }
-    
+
         return Inputs.processInputs (props, locale, messageSource);
     }
 
