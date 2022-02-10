@@ -14,7 +14,7 @@
  *
  */
 
- package com.dappermoose.batchlitcal.main;
+package com.dappermoose.batchlitcal.main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.SimpleCommandLinePropertySource;

@@ -14,7 +14,7 @@
  *
  */
 
- package com.dappermoose.batchlitcal.beans;
+package com.dappermoose.batchlitcal.beans;
 
 import java.io.Serializable;
 

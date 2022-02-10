@@ -14,7 +14,7 @@
  *
  */
 
- package com.dappermoose.batchlitcal.days;
+package com.dappermoose.batchlitcal.days;
 
 /**
  * leap year utility.

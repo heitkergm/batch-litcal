@@ -14,7 +14,7 @@
  *
  */
 
- package com.dappermoose.batchlitcal.days;
+package com.dappermoose.batchlitcal.days;
 
 import lombok.extern.slf4j.Slf4j;
 
