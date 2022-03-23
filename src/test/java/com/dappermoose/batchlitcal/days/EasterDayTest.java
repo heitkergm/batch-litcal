@@ -131,7 +131,7 @@ public class EasterDayTest
     }
     
     /**
-     * Test of calcEaster method, with 201.
+     * Test of calcEaster method, with 2017.
      */
    @Test
    public void testCalcDateEaster2017 ()
@@ -141,7 +141,7 @@ public class EasterDayTest
    }
 
    /**
-     * Test of calcEaster method, with 2017.
+     * Test of calcEaster method, with 2018.
      */
     @Test
     public void testCalcDateEaster2018 ()
@@ -159,7 +159,6 @@ public class EasterDayTest
         System.out.println ("calcDateEaster - 2019");
         Assertions.assertEquals (52, EasterDay.calcEaster (2019));
     }
-
 
    /**
      * Test of calcEaster method, with 2020.
