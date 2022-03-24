@@ -76,7 +76,7 @@
         <pmd.version>6.43.0</pmd.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
         <spring.version>5.3.17</spring.version>
-        <spring-boot.version>2.6.4</spring-boot.version>
+        <spring-boot.version>2.6.5</spring-boot.version>
         <versions-maven-plugin.version>2.10.0</versions-maven-plugin.version>
     </properties>
 
@@ -265,35 +265,31 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+                <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <version>7.0.1</version>
+                    <configuration>
+                        <dataDirectory>${user.dir}/../dependency-check-data</dataDirectory>
+                        <cveValidForHours>12</cveValidForHours>
+                        <suppressionFiles>config/dependency-suppressions.xml</suppressionFiles>
+                        <skipProvidedScope>true</skipProvidedScope>
+                        <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
 
         <plugins>
-            <!-- visual studio code won't show any plugins from plugimManagement -->
             <plugin>
-                <groupId>org.owasp</groupId>
-                <artifactId>dependency-check-maven</artifactId>
-                <version>7.0.0</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
-            </plugin>
-             <!-- netbeans won't show versions:display-*-updates as runnable
-                  maven commands unless the plugin is in build -->
-             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>${versions-maven-plugin.version}</version>
-                <dependencies>
-                    <!-- added to keep snyk vs code extension happy -->
-                    <dependency>
-                        <groupId>org.codehaus.plexus</groupId>
-                        <artifactId>plexus-component-annotations</artifactId>
-                        <version>2.1.1</version>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <groupId>io.github.git-commit-id</groupId>
@@ -630,13 +626,6 @@
                         </reports>
                     </reportSet>
                 </reportSets>
-                <configuration>
-                    <cveValidForHours>24</cveValidForHours>
-                    <suppressionFiles>config/dependency-suppressions.xml</suppressionFiles>
-                    <skipProvidedScope>true</skipProvidedScope>
-                    <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
-                    <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
