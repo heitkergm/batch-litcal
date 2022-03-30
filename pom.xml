@@ -73,7 +73,7 @@
         <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
         <fluido-skin.version>1.10.0</fluido-skin.version>
         <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
-        <pmd.version>6.43.0</pmd.version>
+        <pmd.version>6.44.0</pmd.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
         <spring.version>5.3.17</spring.version>
         <spring-boot.version>2.6.5</spring-boot.version>
@@ -210,7 +210,7 @@
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
                             <artifactId>checkstyle</artifactId>
-                            <version>10.0</version>
+                            <version>10.1</version>
                         </dependency>
                     </dependencies>
                     <configuration>
@@ -237,7 +237,7 @@
                          System::setSecurityManager -->
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.5.3.0</version>
+                    <version>4.6.0.0</version>
                     <configuration>
                         <excludeFilterFile>config/excludeFindbugs.xml</excludeFilterFile>
                         <includeTests>true</includeTests>
@@ -268,7 +268,7 @@
                 <plugin>
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
-                    <version>7.0.1</version>
+                    <version>7.0.4</version>
                     <configuration>
                         <dataDirectory>${user.dir}/../dependency-check-data</dataDirectory>
                         <cveValidForHours>12</cveValidForHours>
@@ -401,7 +401,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
