@@ -41,6 +41,14 @@ public class SpringConfig
     private ApplicationContext context;
 
     /**
+     * constructor
+     *
+     */
+    SpringConfig ()
+    {
+    }
+
+    /**
      * Message source.
      *
      * @return the message source
