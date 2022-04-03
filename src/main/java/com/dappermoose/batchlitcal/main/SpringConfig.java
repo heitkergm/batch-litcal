@@ -41,7 +41,7 @@ public class SpringConfig
     private ApplicationContext context;
 
     /**
-     * constructor
+     * constructor.
      *
      */
     SpringConfig ()
