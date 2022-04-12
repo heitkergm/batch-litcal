@@ -70,7 +70,7 @@
         <java.version>17</java.version>
         <exec.mainClass>com.dappermoose.batchlitcal.main.Main</exec.mainClass>
         <exec.args>sample-input.properties</exec.args>
-        <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
+        <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
         <fluido-skin.version>1.10.0</fluido-skin.version>
         <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
         <pmd.version>6.44.0</pmd.version>
@@ -153,7 +153,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-report-plugin</artifactId>
-                    <version>3.0.0-M5</version>
+                    <version>3.0.0-M6</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -241,15 +241,18 @@
                     <configuration>
                         <excludeFilterFile>config/excludeFindbugs.xml</excludeFilterFile>
                         <includeTests>true</includeTests>
+                        <jvmArgs>-Djava.security.manager=allow</jvmArgs>
                         <plugins>
                             <!-- findsecbugs causes spotbugs to display
                                  can't find MakeConcatWIthConstants, due to
                                  bad handling of INVOKEDYNAMIC JVM opcode -->
+<!--
                             <plugin>
                                 <groupId>com.h3xstream.findsecbugs</groupId>
                                 <artifactId>findsecbugs-plugin</artifactId>
                                 <version>${findsecbugs-plugin.version}</version>
                             </plugin>
+-->
                             <plugin>
                                 <groupId>com.mebigfatguy.sb-contrib</groupId>
                                 <artifactId>sb-contrib</artifactId>
@@ -309,7 +312,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -473,7 +476,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>3.0.0-M6</version>
                 <configuration>
                     <argLine>${argLine} -Dfile.encoding=${project.build.sourceEncoding}</argLine>
                 </configuration>
@@ -481,7 +484,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version>
+                <version>0.8.8</version>
                 <executions>
                     <execution>
                         <id>pre-unit-test</id>
