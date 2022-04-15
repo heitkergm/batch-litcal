@@ -75,7 +75,7 @@
         <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
         <pmd.version>6.44.0</pmd.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
-        <spring.version>5.3.18</spring.version>
+        <spring.version>5.3.19</spring.version>
         <spring-boot.version>2.6.6</spring-boot.version>
         <versions-maven-plugin.version>2.10.0</versions-maven-plugin.version>
     </properties>
