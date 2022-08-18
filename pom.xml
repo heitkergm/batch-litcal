@@ -76,7 +76,7 @@
         <pmd.version>6.48.0</pmd.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
         <spring.version>5.3.22</spring.version>
-        <spring-boot.version>2.7.2</spring-boot.version>
+        <spring-boot.version>2.7.3</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -155,12 +155,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.4.0</version>
+                    <version>3.4.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.4.0</version>
+                    <version>3.4.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -356,7 +356,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>3.8.5</version>
+                                    <version>3.8.6</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
                                     <version>${java.version}</version>
@@ -379,7 +379,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-help-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
