@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.util.Locale;
 import java.util.Properties;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
