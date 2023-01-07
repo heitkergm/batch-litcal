@@ -67,17 +67,17 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
+        <java.version>19</java.version>
         <exec.mainClass>com.dappermoose.batchlitcal.main.Main</exec.mainClass>
         <exec.args>sample-input.properties</exec.args>
         <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
-        <fluido-skin.version>1.11.1</fluido-skin.version>
+        <fluido-skin.version>2.0.0-M2</fluido-skin.version>
         <log4j.version>2.19.0</log4j.version>
         <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
         <pmd.version>6.53.0</pmd.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
-        <spring.version>6.0.3</spring.version>
-        <spring-boot.version>3.0.1</spring-boot.version>
+        <spring.version>6.0.4</spring.version>
+        <spring-boot.version>3.0.2</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -145,7 +145,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.9.1</version>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -161,12 +161,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-report-plugin</artifactId>
-                    <version>3.0.0-M7</version>
+                    <version>3.0.0-M8</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.4.1</version>
+                    <version>3.4.2</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -196,7 +196,7 @@
                  <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
-                    <version>3.19.0</version>
+                    <version>3.20.0</version>
                     <dependencies>
                         <dependency>
                             <groupId>net.sourceforge.pmd</groupId>
@@ -213,7 +213,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <version>3.2.1</version>
                     <dependencies>
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
@@ -236,7 +236,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.4.0</version>
+                    <version>3.5.0</version>
                 </plugin>
                 <plugin>
                     <!-- spotbugs NEEDS the java built-in security manager
@@ -279,7 +279,7 @@
                 <plugin>
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
-                    <version>7.4.3</version>
+                    <version>8.0.1</version>
                     <configuration>
                         <dataDirectory>${user.dir}/../dependency-check-data</dataDirectory>
                         <cveValidForHours>12</cveValidForHours>
@@ -329,9 +329,6 @@
                 <configuration>
                     <release>${java.version}</release>
                     <showDeprecation>true</showDeprecation>
-                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
-                    <compilerId>javac</compilerId>
-                    <useIncrementalCompilation>yes</useIncrementalCompilation>
                     <compilerArgs>
                         <arg>-Xpkginfo:always</arg>
                     </compilerArgs>
@@ -486,7 +483,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>3.0.0-M8</version>
                 <configuration>
                     <argLine>${argLine} -Dfile.encoding=${project.build.sourceEncoding}</argLine>
                 </configuration>

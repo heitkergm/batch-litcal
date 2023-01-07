@@ -85,12 +85,12 @@ public class SpringConfig
         Locale myLocale;
         if (ind >= 0)
         {
-            myLocale = new Locale (localeName.substring (0, ind),
-                                   localeName.substring (ind + 1));
+            myLocale = Locale.of (localeName.substring (0, ind),
+                                  localeName.substring (ind + 1));
         }
         else
         {
-            myLocale = new Locale (localeName);
+            myLocale = Locale.of (localeName);
         }
 
         LOG.debug ("locale bean is " + myLocale.getLanguage () + "_" +
