@@ -72,9 +72,9 @@ public class SpringConfig
     Locale locale ()
     {
         // get the locale and save it off as a bean
-        LOG.debug ("context is " + context);
+        log.debug ("context is " + context);
         String localeName = context.getEnvironment ().getProperty ("locale");
-        LOG.debug ("locale is " + localeName);
+        log.debug ("locale is " + localeName);
         if (localeName == null)
         {
             localeName = Locale.getDefault ().getLanguage () + "_" +
@@ -93,7 +93,7 @@ public class SpringConfig
             myLocale = Locale.of (localeName);
         }
 
-        LOG.debug ("locale bean is " + myLocale.getLanguage () + "_" +
+        log.debug ("locale bean is " + myLocale.getLanguage () + "_" +
                     myLocale.getCountry ());
 
         return myLocale;
@@ -135,11 +135,11 @@ public class SpringConfig
         dateNames[5] = msgSource.getMessage ("friday", null, locale);
         dateNames[6] = msgSource.getMessage ("saturday", null, locale);
 
-        if (LOG.isDebugEnabled ())
+        if (log.isDebugEnabled ())
         {
             for (String name: dateNames)
             {
-                LOG.debug ("date name: " + name);
+                log.debug ("date name: " + name);
             }
         }
 
@@ -160,9 +160,9 @@ public class SpringConfig
 
         String args = context.getEnvironment ().getProperty ("nonOptionArgs");
         String fileName = null;
-        LOG.debug (args);
+        log.debug (args);
         fileName = args;
-        LOG.debug ("input fileName is " + fileName);
+        log.debug ("input fileName is " + fileName);
 
         Properties props = new Properties ();
         if (fileName != null)
@@ -179,7 +179,7 @@ public class SpringConfig
                 String msg = messageSource.getMessage ("noFileFound",
                                                        arr,
                                                        locale);
-                LOG.error (msg + " " +
+                log.error (msg + " " +
                            e.getClass ().getName () + " " +
                            e.getMessage ());
                 throw new RuntimeException (msg, e);
@@ -189,7 +189,7 @@ public class SpringConfig
         {
             String msg = messageSource.getMessage ("noFileGiven",
                                                        null, locale);
-            LOG.error (msg);
+            log.error (msg);
             throw new RuntimeException (msg);
         }
 

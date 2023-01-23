@@ -48,6 +48,6 @@ public class CalendarOptions implements Serializable
      */
     public CalendarOptions ()
     {
-        LOG.debug ("Creating the Calendar Options class");
+        log.debug ("Creating the Calendar Options class");
     }
 }

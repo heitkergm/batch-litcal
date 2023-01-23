@@ -53,7 +53,7 @@ public class MakeCalendar
      */
     public MakeCalendar ()
     {
-        LOG.debug ("Creating the MakeCalendar class");
+        log.debug ("Creating the MakeCalendar class");
     }
 
     /**
@@ -62,7 +62,7 @@ public class MakeCalendar
     public void makeCal ()
     {
         String msg = messageSource.getMessage ("startCalendar", null, locale);
-        LOG.info (msg);
+        log.info (msg);
 
         // make the 6 "seasons"
         // 1 Advent
@@ -95,7 +95,7 @@ public class MakeCalendar
         }
         catch (IOException e)
         {
-            LOG.error (e.getClass ().getName () + " " + e.getMessage ());
+            log.error (e.getClass ().getName () + " " + e.getMessage ());
         }
     }
 }

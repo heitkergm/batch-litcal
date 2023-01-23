@@ -44,20 +44,20 @@ public final class Main
      */
     public static void main (final String[] args)
     {
-        LOG.debug ("starting main batch litcal program");
+        log.debug ("starting main batch litcal program");
 
         // make the context
         SimpleCommandLinePropertySource ps;
         ps = new SimpleCommandLinePropertySource (args);
         String [] pnames = ps.getPropertyNames ();
-        if (LOG.isDebugEnabled ())
+        if (log.isDebugEnabled ())
         {
             for (String pname : pnames)
             {
-                LOG.debug ("property name: " + pname + ": " + ps.getProperty (pname));
+                log.debug ("property name: " + pname + ": " + ps.getProperty (pname));
             }
         }
-        LOG.debug ("nonOptionsArgs: " + ps.getProperty ("nonOptionArgs"));
+        log.debug ("nonOptionsArgs: " + ps.getProperty ("nonOptionArgs"));
 
         AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext ();

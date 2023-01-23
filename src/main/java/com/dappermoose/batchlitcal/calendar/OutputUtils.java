@@ -39,7 +39,7 @@ public class OutputUtils
      */
     public OutputUtils ()
     {
-        LOG.debug ("Creating the OutputUtils class");
+        log.debug ("Creating the OutputUtils class");
     }
 
     /**
@@ -64,7 +64,7 @@ public class OutputUtils
         }
         catch (IOException e)
         {
-            LOG.error (e.getClass ().getName () + " " + e.getMessage ());
+            log.error (e.getClass ().getName () + " " + e.getMessage ());
             throw new RuntimeException (e);
         }
     }
@@ -82,7 +82,7 @@ public class OutputUtils
         }
         catch (IOException e)
         {
-            LOG.error (e.getClass ().getName () + " " + e.getMessage ());
+            log.error (e.getClass ().getName () + " " + e.getMessage ());
             throw new RuntimeException (e);
         }
     }

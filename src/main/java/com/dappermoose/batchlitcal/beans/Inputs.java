@@ -18,7 +18,7 @@ public final class Inputs
 {
     private Inputs ()
     {
-        LOG.debug ("Creating the Inputs class");
+        log.debug ("Creating the Inputs class");
     }
 
     /**
@@ -27,9 +27,9 @@ public final class Inputs
      * @param props the list of program inputs from the command line.
      * @param locale the locale
      * @param messageSource the messages
-     * 
+     *
      * @return the CalendarOptions bean
-     * 
+     *
      */
     public static CalendarOptions processInputs (final Properties props,
                                                  final Locale locale,
@@ -41,7 +41,7 @@ public final class Inputs
         {
             String name = (String) iter.nextElement ();
             String value = props.getProperty (name);
-            LOG.debug ("Property: " + name + " = " + value);
+            log.debug ("Property: " + name + " = " + value);
             if (opts.getYear () == null &&
                 "year".equals (name))
             {
@@ -56,17 +56,17 @@ public final class Inputs
                     String msg = messageSource.getMessage ("yearNotNumber",
                                                            arr,
                                                            locale);
-                    LOG.error (msg + " " +
+                    log.error (msg + " " +
                                e.getClass ().getName () + " " +
                                e.getMessage ());
-                    throw new RuntimeException (msg, e);      
+                    throw new RuntimeException (msg, e);
                 }
 
                 opts.setYear (yr);
-                LOG.debug ("year was an integer " + yr);
+                log.debug ("year was an integer " + yr);
             }
         }
-        LOG.debug ("calendar options bean = " + opts);
+        log.debug ("calendar options bean = " + opts);
         return opts;
     }
 }
