@@ -1,5 +1,5 @@
 /*
- *  Copyright 2022 G. Matthew Heitker
+ *  Copyright 2022-2023 G. Matthew Heitker
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -109,7 +109,7 @@ public class EasterDayTest
         System.out.println ("calcDateEaster - 2014");
         Assertions.assertEquals (51, EasterDay.calcEaster (2014));
     }
-    
+
     /**
      * Test of calcEaster method, with 2015.
      */
@@ -129,7 +129,7 @@ public class EasterDayTest
         System.out.println ("calcDateEaster - 2016");
         Assertions.assertEquals (27, EasterDay.calcEaster (2016));
     }
-    
+
     /**
      * Test of calcEaster method, with 2017.
      */
@@ -168,5 +168,5 @@ public class EasterDayTest
     {
         System.out.println ("calcDateEaster - 2019");
         Assertions.assertEquals (43, EasterDay.calcEaster (2020));
-    }    
+    }
 }
