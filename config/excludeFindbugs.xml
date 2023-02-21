@@ -7,15 +7,11 @@
         <Bug pattern="USBR_UNNECESSARY_STORE_BEFORE_RETURN" />
     </Match>
     <Match>
-        <Class name="com.dappermoose.batchlitcal.beans.Inputs" />
-        <Bug pattern="THROWS_METHOD_THROWS_RUNTIMEEXCEPTION" />
-    </Match>
-    <Match>
         <Class name="com.dappermoose.batchlitcal.calendar.OutputUtils" />
-        <Bug pattern="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS,THROWS_METHOD_THROWS_RUNTIMEEXCEPTION" />
+        <Bug pattern="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" />
     </Match>
     <Match>
         <Class name="com.dappermoose.batchlitcal.main.SpringConfig" />
-        <Bug pattern="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS,THROWS_METHOD_THROWS_RUNTIMEEXCEPTION" />
+        <Bug pattern="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" />
     </Match>
 </FindBugsFilter>

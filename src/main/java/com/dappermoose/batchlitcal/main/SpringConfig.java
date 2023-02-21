@@ -72,8 +72,10 @@ public class SpringConfig
     Locale locale ()
     {
         // get the locale and save it off as a bean
+        // deepcode ignore LogLevelCheck:
         log.debug ("context is " + context);
         String localeName = context.getEnvironment ().getProperty ("locale");
+        // deepcode ignore LogLevelCheck:
         log.debug ("locale is " + localeName);
         if (localeName == null)
         {
@@ -93,6 +95,7 @@ public class SpringConfig
             myLocale = Locale.of (localeName);
         }
 
+        // deepcode ignore LogLevelCheck:
         log.debug ("locale bean is " + myLocale.getLanguage () + "_" +
                     myLocale.getCountry ());
 
@@ -139,6 +142,7 @@ public class SpringConfig
         {
             for (String name: dateNames)
             {
+                // deepcode ignore LogLevelCheck:
                 log.debug ("date name: " + name);
             }
         }
@@ -162,6 +166,7 @@ public class SpringConfig
         String fileName = null;
         log.debug (args);
         fileName = args;
+        // deepcode ignore LogLevelCheck:
         log.debug ("input fileName is " + fileName);
 
         Properties props = new Properties ();

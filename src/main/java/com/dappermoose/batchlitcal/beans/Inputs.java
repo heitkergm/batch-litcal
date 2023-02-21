@@ -41,6 +41,7 @@ public final class Inputs
         {
             String name = (String) iter.nextElement ();
             String value = props.getProperty (name);
+            // deepcode ignore LogLevelCheck:
             log.debug ("Property: " + name + " = " + value);
             if (opts.getYear () == null &&
                 "year".equals (name))
@@ -63,9 +64,11 @@ public final class Inputs
                 }
 
                 opts.setYear (yr);
+                // deepcode ignore LogLevelCheck:
                 log.debug ("year was an integer " + yr);
             }
         }
+        // deepcode ignore LogLevelCheck:
         log.debug ("calendar options bean = " + opts);
         return opts;
     }

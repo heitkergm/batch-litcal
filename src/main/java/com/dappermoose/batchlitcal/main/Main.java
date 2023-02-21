@@ -54,9 +54,11 @@ public final class Main
         {
             for (String pname : pnames)
             {
+                // deepcode ignore LogLevelCheck:
                 log.debug ("property name: " + pname + ": " + ps.getProperty (pname));
             }
         }
+        // deepcode ignore LogLevelCheck:
         log.debug ("nonOptionsArgs: " + ps.getProperty ("nonOptionArgs"));
 
         AnnotationConfigApplicationContext context =
