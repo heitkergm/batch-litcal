@@ -71,12 +71,13 @@
         <exec.mainClass>com.dappermoose.batchlitcal.main.Main</exec.mainClass>
         <exec.args>sample-input.properties</exec.args>
         <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
-        <fluido-skin.version>2.0.0-M3</fluido-skin.version>
+        <fluido-skin.version>2.0.0-M5</fluido-skin.version>
         <log4j.version>2.20.0</log4j.version>
+        <maven.version>3.9.1</maven.version>
         <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
         <pmd.version>6.55.0</pmd.version>
         <sb-contrib.version>7.6.0</sb-contrib.version>
-        <spring.version>6.0.7</spring.version>
+        <spring-framework.version>6.0.8</spring-framework.version>
         <spring-boot.version>3.0.5</spring-boot.version>
     </properties>
 
@@ -100,12 +101,12 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
+                <version>${spring-framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
+                <version>${spring-framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -116,6 +117,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-core</artifactId>
+            <version>${maven.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
@@ -219,7 +226,7 @@
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
                             <artifactId>checkstyle</artifactId>
-                            <version>10.9.2</version>
+                            <version>10.9.3</version>
                         </dependency>
                     </dependencies>
                     <configuration>
@@ -242,7 +249,7 @@
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.7.3.3</version>
+                    <version>4.7.3.4</version>
                     <configuration>
                         <excludeFilterFile>config/excludeFindbugs.xml</excludeFilterFile>
                         <includeTests>true</includeTests>
@@ -348,7 +355,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <?m2e ignore?>
@@ -359,7 +366,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>3.9.0</version>
+                                    <version>${maven.version}</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
                                     <version>${java.version}</version>
@@ -487,7 +494,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version>
+                <version>0.8.9</version>
                 <executions>
                     <execution>
                         <id>pre-unit-test</id>
@@ -500,7 +507,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>4.0.0-M6</version>
+                <version>4.0.0-M7</version>
             </plugin>
         </plugins>
     </build>
