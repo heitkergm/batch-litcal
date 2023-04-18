@@ -67,7 +67,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>19</java.version>
+        <java.version>20</java.version>
         <exec.mainClass>com.dappermoose.batchlitcal.main.Main</exec.mainClass>
         <exec.args>sample-input.properties</exec.args>
         <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
@@ -78,7 +78,7 @@
         <pmd.version>6.55.0</pmd.version>
         <sb-contrib.version>7.6.0</sb-contrib.version>
         <spring-framework.version>6.0.8</spring-framework.version>
-        <spring-boot.version>3.0.5</spring-boot.version>
+        <spring-boot.version>3.0.6</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -174,7 +174,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.4.2</version>
+                    <version>3.4.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -221,7 +221,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>3.2.1</version>
+                    <version>3.2.2</version>
                     <dependencies>
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
