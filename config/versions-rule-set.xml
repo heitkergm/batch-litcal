@@ -14,5 +14,10 @@
                 <ignoreVersion type="regex">7\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.apache.logging.log4j" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">3\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
     </rules>
 </ruleset>
