@@ -14,5 +14,10 @@
                 <ignoreVersion type="regex">3\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.slf4j" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">2\.1.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
     </rules>
 </ruleset>

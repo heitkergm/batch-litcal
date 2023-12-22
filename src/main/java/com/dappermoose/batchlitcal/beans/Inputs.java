@@ -5,6 +5,7 @@ import java.util.Locale;
 import java.util.Properties;
 
 import org.springframework.context.MessageSource;
+import org.springframework.lang.NonNull;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +33,7 @@ public final class Inputs
      *
      */
     public static CalendarOptions processInputs (final Properties props,
-                                                 final Locale locale,
+                                                 final @NonNull Locale locale,
                                               final MessageSource messageSource)
     {
         CalendarOptions opts = new CalendarOptions ();
