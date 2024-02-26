@@ -34,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 @ToString
 public class CalendarOptions implements Serializable
 {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -5578278990768465845L;
 
     /**
      * the value of the year.
