@@ -14,5 +14,15 @@
                 <ignoreVersion type="regex">2\.1.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.apache.maven.plugins" artifactId="maven-site-plugin" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">4\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.springframework" artifactId="spring-*" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">6\.2\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
     </rules>
 </ruleset>
