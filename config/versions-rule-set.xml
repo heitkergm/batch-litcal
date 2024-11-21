@@ -19,10 +19,5 @@
                 <ignoreVersion type="regex">4\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.springframework" artifactId="spring-*" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">6\.2\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
     </rules>
 </ruleset>

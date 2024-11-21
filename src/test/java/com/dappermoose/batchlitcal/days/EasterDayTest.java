@@ -133,12 +133,12 @@ public class EasterDayTest
     /**
      * Test of calcEaster method, with 2017.
      */
-   @Test
-   public void testCalcDateEaster2017 ()
-   {
-       System.out.println ("calcDateEaster - 2017");
-       Assertions.assertEquals (47, EasterDay.calcEaster (2017));
-   }
+    @Test
+    public void testCalcDateEaster2017 ()
+    {
+        System.out.println ("calcDateEaster - 2017");
+        Assertions.assertEquals (47, EasterDay.calcEaster (2017));
+    }
 
    /**
      * Test of calcEaster method, with 2018.
