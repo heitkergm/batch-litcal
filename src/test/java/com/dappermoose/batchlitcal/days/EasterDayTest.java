@@ -1,5 +1,5 @@
 /*
- *  Copyright 2022-2024 G. Matthew Heitker
+ *  Copyright 2022-2025 G. Matthew Heitker
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -133,12 +133,12 @@ public class EasterDayTest
     /**
      * Test of calcEaster method, with 2017.
      */
-   @Test
-   public void testCalcDateEaster2017 ()
-   {
-       System.out.println ("calcDateEaster - 2017");
-       Assertions.assertEquals (47, EasterDay.calcEaster (2017));
-   }
+    @Test
+    public void testCalcDateEaster2017 ()
+    {
+        System.out.println ("calcDateEaster - 2017");
+        Assertions.assertEquals (47, EasterDay.calcEaster (2017));
+    }
 
    /**
      * Test of calcEaster method, with 2018.

@@ -1,9 +1,9 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/DECORATION/1.8.1"
-         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.1
-         http://maven.apache.org/xsd/decoration-1.8.1.xsd">
+<site xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://maven.apache.org/SITE/2.0.0"
+      xsi:schemaLocation="http://maven.apache.org/SITE/2.0.0
+                          http://maven.apache.org/xsd/site-2.0.0.xsd">
 <!--
- *  Copyright 2022-2024 G. Matthew Heitker
+ *  Copyright 2022-2025 G. Matthew Heitker
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,10 +18,7 @@
  *  limitations under the License.
  *
 -->
-    <bannerLeft>
-        <name>${project.name}</name>
-        <href>${project.url}</href>
-    </bannerLeft>
+    <bannerLeft name="${project.name}" href="${project.url}" />
 
     <publishDate position="right" format="MMMM dd, yyyy"/>
     <version/>
@@ -47,4 +44,4 @@
         <menu ref="reports"/>
         <footer/>
     </body>
-</project>
+</site>
