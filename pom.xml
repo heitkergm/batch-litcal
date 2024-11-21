@@ -71,13 +71,13 @@
         <exec.mainClass>com.dappermoose.batchlitcal.main.Main</exec.mainClass>
         <exec.args>sample-input.properties</exec.args>
         <findsecbugs-plugin.version>1.13.0</findsecbugs-plugin.version>
-        <fluido-skin.version>2.0.0</fluido-skin.version>
-        <log4j2.version>2.24.1</log4j2.version>
+        <fluido-skin.version>2.0.1</fluido-skin.version>
+        <log4j2.version>2.24.3</log4j2.version>
         <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
-        <pmd.version>7.7.0</pmd.version>
-        <sb-contrib.version>7.6.8</sb-contrib.version>
-        <spring-framework.version>6.1.15</spring-framework.version>
-        <spring-boot.version>3.3.6</spring-boot.version>
+        <pmd.version>7.8.0</pmd.version>
+        <sb-contrib.version>7.6.9</sb-contrib.version>
+        <spring-framework.version>6.2.1</spring-framework.version>
+        <spring-boot.version>3.4.1</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -85,7 +85,7 @@
             <dependency>
                 <groupId>io.micrometer</groupId>
                 <artifactId>micrometer-observation</artifactId>
-                <version>1.14.1</version>
+                <version>1.14.2</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.skins</groupId>
@@ -151,7 +151,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.11.3</version>
+            <version>5.11.4</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -177,7 +177,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.11.1</version>
+                    <version>3.11.2</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -224,7 +224,7 @@
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
                             <artifactId>checkstyle</artifactId>
-                            <version>10.20.1</version>
+                            <version>10.21.0</version>
                         </dependency>
                     </dependencies>
                     <configuration>
@@ -233,7 +233,7 @@
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>false</failsOnError>
                         <linkXRef>true</linkXRef>
-                        <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                        <includeTestSourceDirectory>true</includeTestSourceDirectory>
                         <includeResources>false</includeResources>
                         <includeTestResources>false</includeTestResources>
                     </configuration>
@@ -277,7 +277,7 @@
                 <plugin>
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
-                    <version>11.1.0</version>
+                    <version>11.1.1</version>
                     <configuration>
                         <dataDirectory>${user.dir}/../dependency-check-data</dataDirectory>
                         <nvdApiKey>${env.NVD_KEY}</nvdApiKey>
