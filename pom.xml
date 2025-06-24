@@ -73,7 +73,7 @@
         <findsecbugs-plugin.version>1.14.0</findsecbugs-plugin.version>
         <fluido-skin.version>2.1.0</fluido-skin.version>
         <maven.version.rules>file://${project.basedir}/config/versions-rule-set.xml</maven.version.rules>
-        <pmd.version>7.14.0</pmd.version>
+        <pmd.version>7.15.0</pmd.version>
         <sb-contrib.version>7.6.11</sb-contrib.version>
         <spring-framework.version>6.2.8</spring-framework.version>
         <spring-boot.version>3.5.3</spring-boot.version>
@@ -144,7 +144,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.13.1</version>
+            <version>5.13.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -190,7 +190,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
-                    <version>3.26.0</version>
+                    <version>3.27.0</version>
                     <dependencies>
                         <dependency>
                             <groupId>net.sourceforge.pmd</groupId>
@@ -212,7 +212,7 @@
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
                             <artifactId>checkstyle</artifactId>
-                            <version>10.25.1</version>
+                            <version>10.26.1</version>
                         </dependency>
                     </dependencies>
                     <configuration>
@@ -234,7 +234,7 @@
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.9.3.0</version>
+                    <version>4.9.3.2</version>
                     <configuration>
                         <excludeFilterFile>config/excludeFindbugs.xml</excludeFilterFile>
                         <includeTests>true</includeTests>
@@ -356,7 +356,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <?m2e ignore?>
