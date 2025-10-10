@@ -16,9 +16,14 @@
 
 package com.dappermoose.batchlitcal.main;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.core.env.SimpleCommandLinePropertySource;
-import org.springframework.lang.NonNull;
+import java.awt.EventQueue;
+
+import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+
+import org.jspecify.annotations.NonNull;
 
 import com.dappermoose.batchlitcal.calendar.MakeCalendar;
 
@@ -31,6 +36,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author heitkergm@acm.org
  */
 @Slf4j
+@ComponentScan
 public final class Main
 {
     private Main ()
@@ -47,38 +53,14 @@ public final class Main
     {
         log.debug ("starting main batch litcal program");
 
-        // make the context
-        SimpleCommandLinePropertySource ps;
-        ps = new SimpleCommandLinePropertySource (args);
-        String [] pnames = ps.getPropertyNames ();
-        if (log.isDebugEnabled ())
+        ApplicationContext context = new SpringApplicationBuilder (Main.class)
+                .headless (false).web (WebApplicationType.NONE).registerShutdownHook (true)
+                .run (args);
+
+        EventQueue.invokeLater (() ->
         {
-            for (String pname : pnames)
-            {
-                if (pname != null)
-                {
-                    // deepcode ignore LogLevelCheck:
-                    log.debug ("property name: " + pname + ": " + ps.getProperty (pname));
-                }
-            }
-        }
-        // deepcode ignore LogLevelCheck:
-        log.debug ("nonOptionsArgs: " + ps.getProperty ("nonOptionArgs"));
-
-        AnnotationConfigApplicationContext context =
-            new AnnotationConfigApplicationContext ();
-        context.getEnvironment ().getPropertySources ().addFirst (ps);
-
-        // now run SpringConfig and inject the locale bean
-        context.register (SpringConfig.class);
-        context.refresh ();
-
-        // make sure our context shuts down when JVM wants to
-        context.registerShutdownHook ();
-
-        MakeCalendar makeCal = context.getBean (MakeCalendar.class);
-        makeCal.makeCal ();
-
-        context.close ();
+            MakeCalendar makeCal = context.getBean (MakeCalendar.class);
+            makeCal.makeCal ();
+        });
     }
 }

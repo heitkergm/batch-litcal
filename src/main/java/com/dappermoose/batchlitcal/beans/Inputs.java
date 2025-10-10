@@ -5,7 +5,8 @@ import java.util.Locale;
 import java.util.Properties;
 
 import org.springframework.context.MessageSource;
-import org.springframework.lang.NonNull;
+
+import org.jspecify.annotations.NonNull;
 
 import lombok.extern.slf4j.Slf4j;
 

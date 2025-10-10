@@ -7,8 +7,9 @@ import java.util.Locale;
 import jakarta.inject.Inject;
 
 import org.springframework.context.MessageSource;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
+
+import org.jspecify.annotations.NonNull;
 
 import com.dappermoose.batchlitcal.beans.CalendarOptions;
 
