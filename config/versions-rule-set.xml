@@ -2,12 +2,12 @@
 <ruleset xmlns="https://www.mojohaus.org/VERSIONS/RULE/3.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://www.mojohaus.org/VERSIONS/RULE/3.0.0 https://www.mojohaus.org/versions/versions-model/xsd/rule-3.0.0.xsd">
     <rules>
-        <rule groupId="org.slf4j" comparisonMethod="maven">
+        <rule groupId="org.slf4j">
             <ignoreVersions>
                 <ignoreVersion type="regex">2\.1.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.apache.maven.plugins" artifactId="maven-site-plugin" comparisonMethod="maven">
+        <rule groupId="org.apache.maven.plugins" artifactId="maven-site-plugin">
             <ignoreVersions>
                 <ignoreVersion type="regex">4\..*</ignoreVersion>
             </ignoreVersions>
